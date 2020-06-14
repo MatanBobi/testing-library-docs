@@ -8,9 +8,10 @@ vice versa.
 
 ## Waiting for appearance
 
-If you need to wait for an element to appear, the [async wait
-utilities][async-api] allow you to wait for an assertion to be satisfied before
-proceeding. The wait utilities retry until the query passes or times out.
+If you need to wait for an element to appear, the
+[async utilities](universal-api-async#waitfor) allow you to wait for an
+assertion to be satisfied before proceeding. The wait utilities retry until the
+query passes or times out.
 
 ```jsx
 test('movie title appears', async () => {
@@ -43,9 +44,9 @@ Using
 [`MutationObserver`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
 is more efficient than polling the DOM at regular intervals with `waitFor`.
 
-The `waitFor` [async helper][async-api] function retries until the wrapped function
-stops throwing an error. This can be used to assert that an element disappears
-from the page.
+The `waitFor` [async helper][async-api] function retries until the wrapped
+function stops throwing an error. This can be used to assert that an element
+disappears from the page.
 
 ```jsx
 test('movie title goes away', async () => {
@@ -92,4 +93,4 @@ const submitButton = screen.queryByText('submit')
 expect(submitButton).not.toBeInTheDocument()
 ```
 
-[async-api]: dom-testing-library/api-async.md
+[async utilities]: universal-api-async.md

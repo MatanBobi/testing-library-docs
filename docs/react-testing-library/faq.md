@@ -30,16 +30,21 @@ test('change values via the fireEvent.change method', () => {
 
 test('select drop-downs must use the fireEvent.change', () => {
   const handleChange = jest.fn()
-  const { container } = render(<select onChange={handleChange}><option value="1">1</option><option value="2">2</option></select>)
-  const select = container.firstChild;
-  const option1 = container.getElementsByTagName("option").item(0);
-  const option2 = container.getElementsByTagName("option").item(1);
-        
-  fireEvent.change(select, {target: {value: "2"}});
+  const { container } = render(
+    <select onChange={handleChange}>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+  )
+  const select = container.firstChild
+  const option1 = container.getElementsByTagName('option').item(0)
+  const option2 = container.getElementsByTagName('option').item(1)
 
-  expect(handleChange).toHaveBeenCalledTimes(1);
-  expect(option1.selected).toBe(false);
-  expect(option2.selected).toBe(true);
+  fireEvent.change(select, { target: { value: '2' } })
+
+  expect(handleChange).toHaveBeenCalledTimes(1)
+  expect(option1.selected).toBe(false)
+  expect(option2.selected).toBe(true)
 })
 
 test('checkboxes (and radios) must use fireEvent.click', () => {
@@ -200,8 +205,8 @@ This warning is usually caused by an async operation causing an update after the
 test has already finished. There are 2 approaches to resolve it:
 
 1. Wait for the result of the operation in your test by using one of
-   [the async utilities](/docs/dom-testing-library/api-async) like
-   [wait](/docs/dom-testing-library/api-async#wait) or a
+   [the async utilities](/docs/universal-api-async) like
+   [wait](/docs/universal-api-async#wait) or a
    [`find*` query](/docs/dom-testing-library/api-queries#findby). For example:
    `const userAddress = await findByLabel(/address/i)`.
 2. Mocking out the asynchronous operation so that it doesn't trigger state

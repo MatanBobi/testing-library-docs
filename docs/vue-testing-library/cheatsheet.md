@@ -60,8 +60,7 @@ For more information, see [Which query should I use?](guide-which-query.md).
 - `findBy` and `findAllBy` queries are async and retry until either a timeout or
   if the query returns successfully; they wrap `waitForElement`.
 
-For more information, see
-[DOM Testing Library Async API](dom-testing-library/api-async.md).
+For more information, see [Async Utilities](universal-api-async.md).
 
 > Remember to `await` or `.then()` the result of async functions in your tests!
 

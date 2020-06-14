@@ -389,7 +389,7 @@ component.type(component.getByLabelText('Username'), 'Tim', { delay: 250 })
 
 When in need to wait for any period of time you can use waitFor, to wait for
 your expectations to pass. For more info see the
-[DOM Testing Library docs](https://testing-library.com/docs/dom-testing-library/api-async#waitFor).
+[Async Utilities](universal-api-async.md#waitFor).
 
 This function will also call `detectChanges` repeatably to update the DOM, which
 is helpful to test async functionalities.
@@ -397,7 +397,7 @@ is helpful to test async functionalities.
 ### `waitForElementToBeRemoved`
 
 Wait for the removal of element(s) from the DOM. For more info see the
-[DOM Testing Library docs](https://testing-library.com/docs/dom-testing-library/api-async#waitforelementtoberemoved).
+[Async Utilities](universal-api-async.md#waitforelementtoberemoved).
 
 This function will also call `detectChanges` repeatably to update the DOM, which
 is helpful to test async functionalities.
