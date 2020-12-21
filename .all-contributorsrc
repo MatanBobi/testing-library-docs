@@ -628,7 +628,8 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/12711091?v=4",
       "profile": "https://twitter.com/matan_bobi",
       "contributions": [
-        "doc"
+        "doc",
+        "code"
       ]
     },
     {
@@ -1142,6 +1143,53 @@
       "name": "Nikolai Yakuschenko",
       "avatar_url": "https://avatars3.githubusercontent.com/u/31370625?v=4",
       "profile": "https://github.com/nick722",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "vier31",
+      "name": "Jan Schröder",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/34372068?v=4",
+      "profile": "https://github.com/vier31",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "nickmccurdy",
+      "name": "Nick McCurdy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/927220?v=4",
+      "profile": "https://nickmccurdy.com/",
+      "contributions": [
+        "doc",
+        "review",
+        "code"
+      ]
+    },
+    {
+      "login": "tsuki42",
+      "name": "Sudhanshu",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/22864071?v=4",
+      "profile": "http://sudhanshu-ranjan.tech",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "aleks-rope",
+      "name": "Aleksandr Chernov",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/58922379?v=4",
+      "profile": "http://newrope.biz",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "mathiassoeholm",
+      "name": "Mathias",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1747242?v=4",
+      "profile": "https://github.com/mathiassoeholm",
       "contributions": [
         "doc"
       ]

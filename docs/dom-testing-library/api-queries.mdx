@@ -3,8 +3,8 @@ id: api-queries
 title: Queries
 ---
 
-import Tabs from '@theme/Tabs'; 
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 ## Variants
 
@@ -26,7 +26,8 @@ an error if no elements match.
 
 `queryBy*` queries return the first matching node for a query, and return `null`
 if no elements match. This is useful for asserting an element that is not
-present. This throws if more than one match is found (use `queryAllBy` instead).
+present. This throws an error if more than one match is found (use `queryAllBy`
+instead).
 
 ### queryAllBy
 
@@ -86,6 +87,17 @@ document.body.innerHTML = exampleHTML
 const exampleInput = screen.getByLabelText(/example/i)
 ```
 
+> **Note**
+>
+> You need a global DOM environment to use `screen`. If you're using jest, with
+> the
+> [testEnvironment](https://jestjs.io/docs/en/configuration#testenvironment-string)
+> set to `jsdom`, a global DOM environment will be available for you.
+>
+> If you're loading your test with a `script` tag, make sure it comes after the
+> `body`. An example can be seen
+> [here](https://github.com/testing-library/dom-testing-library/issues/700#issuecomment-692218886).
+
 ### `screen.debug`
 
 For convenience screen also exposes a `debug` method in addition to the queries.
@@ -107,6 +119,26 @@ screen.debug()
 screen.debug(screen.getByText('test'))
 // debug multiple elements
 screen.debug(screen.getAllByText('multi-test'))
+```
+
+### `screen.logTestingPlaygroundURL`
+
+For debugging using [testing-playground](https://testing-playground.com), screen
+exposes this convenient method which logs a URL that can be opened in a browser.
+
+```javascript
+import { screen } from '@testing-library/dom'
+
+document.body.innerHTML = `
+  <button>test</button>
+  <span>multi-test</span>
+  <div>multi-test</div>
+`
+
+// log entire document to testing-playground
+screen.logTestingPlaygroundURL()
+// log a single element
+screen.logTestingPlaygroundURL(screen.getByText('test'))
 ```
 
 ## Queries
@@ -645,6 +677,7 @@ getByRole(
     selected?: boolean,
     checked?: boolean,
     pressed?: boolean,
+    expanded?: boolean,
     queryFallbacks?: boolean,
     level?: number,
   }): HTMLElement
@@ -777,6 +810,37 @@ For example in
 you can get the "👍" button by calling `getByRole('button', { pressed: true })`.
 To learn more about the pressed state see
 [ARIA `aria-pressed`](https://www.w3.org/TR/wai-aria-1.2/#aria-pressed).
+
+#### `expanded`
+
+You can filter the returned elements by their expanded state by setting
+`expanded: true` or `expanded: false`.
+
+For example in
+
+```html
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a aria-expanded="false" aria-haspopup="true" href="..."
+          >Expandable Menu Item</a
+        >
+        <ul>
+          <li><a href="#">Submenu Item 1</a></li>
+          <li><a href="#">Submenu Item 1</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Regular Menu Item</a></li>
+    </ul>
+  </nav>
+</body>
+```
+
+you can get the "Expandable Menu Item" link by calling
+`getByRole('link', { expanded: false })`. To learn more about the checked state
+and which elements can have this state see
+[ARIA `aria-checked`](https://www.w3.org/TR/wai-aria-1.2/#aria-expanded).
 
 ```html
 <div role="dialog">...</div>
@@ -1006,7 +1070,7 @@ To override normalization to remove some Unicode characters whilst keeping some
 
 ```javascript
 screen.getByText('text', {
-  normalizer: str =>
+  normalizer: (str) =>
     getDefaultNormalizer({ trim: false })(str).replace(/[\u200E-\u200F]*/g, ''),
 })
 ```

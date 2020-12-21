@@ -13,9 +13,9 @@ with React Testing Library.
 
 React Testing Library is part of an open-source project named
 [Testing Library](https://github.com/testing-library). There are several other
-helpful tools and libraries in the Testing Library project which you can use
-them to write more useful tests. Beside React Testing Library, here are some
-other Testing Library's libraries that can help you along the way:
+helpful tools and libraries in the Testing Library project which you can use to
+write more useful tests. Besides React Testing Library, here are some other
+Testing Library's libraries that can help you along the way:
 
 - **[@testing-library/jest-dom](https://github.com/testing-library/jest-dom)**:
   jest-dom provides a set of custom jest matchers that you can use to extend
@@ -49,13 +49,13 @@ development speed and productivity, since every small change requires rewriting
 some part of your tests, even if the change you made does not affect the
 component's output.
 
-Re-writing your tests in React Testing library worthwhile because you're trading
-tests that slow you down for tests that give you more confidence and increase
-your productivity in the long run.
+Re-writing your tests in React Testing library is worthwhile, because you're
+trading tests that slow you down for tests that give you more confidence and
+increase your productivity in the long run.
 
 ## How to migrate from Enzyme to React Testing Library?
 
-One of the keys to a successful migrate is to do it incrementally, by running
+One of the keys to a successful migration is to do it incrementally, by running
 the two test libraries side by side in the same application and porting Enzyme's
 tests to React Testing Library one by one. It makes it possible to migrate even
 large and complex applications without disrupting other businesses because the
@@ -63,9 +63,8 @@ work can be done collaboratively and spread over some time.
 
 ## Install React Testing Library
 
-You can check
-[this page](setup.mdx) for
-the complete installation and setup guide.
+You can check [this page](setup.mdx) for the complete installation and setup
+guide.
 
 Here is what you should do, first you need to install the React Testing Library:
 
@@ -126,13 +125,13 @@ different name, and the template updates accordingly. Check the live version on
 [Codesandbox](https://codesandbox.io/s/ecstatic-hellman-fh7in)
 
 ```jsx
-const Welcome = props => {
+const Welcome = (props) => {
   const [values, setValues] = useState({
     firstName: props.firstName,
     lastName: props.lastName,
   })
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value })
   }
 
@@ -200,8 +199,7 @@ automatically cleans up the output for each test, so you don't need to call
 
 The other thing that you might notice is `getByRole` which has `heading` as its
 value. `heading` is the accessible role of the `h1` element. You can learn more
-about them on
-[queries](dom-testing-library/api-queries.mdx#byrole)
+about them on [queries](dom-testing-library/api-queries.mdx#byrole)
 documentation page. One of the things people quickly learn to love about Testing
 Library is how it encourages you to write more accessible applications (because
 if it's not accessible, then it's harder to test).
@@ -245,8 +243,8 @@ like `<div>` do not have one. You could use different approaches to access the
 `<div>` element, but we recommend trying to access elements by their implicit
 `role` to make sure your component is accessible by people with disabilities and
 those who are using screen readers. This
-[section](dom-testing-library/api-queries.mdx#byrole)
-of the query page might help you to understand better.
+[section](dom-testing-library/api-queries.mdx#byrole) of the query page might
+help you to understand better.
 
 > Keep in mind that a `<form>` must have a `name` attribute in order to have an
 > implicit `role` of `form` (as required by the specification).
@@ -260,13 +258,11 @@ it's not recommended for the reasons stated in this paragraph).
 
 We made some handy query APIs which help you to access the component elements
 very efficiently, and you can see the
-[list of available queries](dom-testing-library/api-queries.mdx)
-in detail.
+[list of available queries](dom-testing-library/api-queries.mdx) in detail.
 
 Something else that people have a problem with is that they're not sure which
 query should they use, luckily we have a great page which explains
-[which query to use](guide-which-query.mdx), so
-don't forget to check it out!
+[which query to use](guide-which-query.mdx), so don't forget to check it out!
 
 If you still have a problem with the React Testing Library's queries, and you're
 not sure which query to use, then check out
@@ -294,13 +290,11 @@ to handle fewer things!
 
 There are two ways to simulate user events, one is a perfect library named
 [`user-event`](https://github.com/testing-library/user-event), and the other way
-is to use
-[`fireEvent`](dom-testing-library/api-events.mdx).
-`user-event` is actually built on top of `fireEvent` which simply calls
-`dispatchEvent` on the element given. However, `user-event` is generally
-recommended because it ensures that all the events are fired in the correct
-order for typical user interactions which helps to ensure your tests resemble
-the way your software is used.
+is to use [`fireEvent`](dom-testing-library/api-events.mdx). `user-event` is
+actually built on top of `fireEvent` which simply calls `dispatchEvent` on the
+element given. However, `user-event` is generally recommended because it ensures
+that all the events are fired in the correct order for typical user interactions
+which helps to ensure your tests resemble the way your software is used.
 
 To use the `@testing-library/user-event` module, you first need to install it:
 

@@ -3,8 +3,8 @@ id: api-events
 title: Firing Events
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 > Most projects have a few use cases for `fireEvent`, but the majority of the
 > time you should probably use
@@ -70,10 +70,10 @@ fireEvent.change(getByLabelText(/picture/i), {
 // reflect the changed value.
 
 // Invalid:
-fireEvent.change(input, { target: { value: '12/05/2020' } })
+fireEvent.change(input, { target: { value: '24/05/2020' } })
 
 // Valid:
-fireEvent.change(input, { target: { value: '2020-05-12' } })
+fireEvent.change(input, { target: { value: '2020-05-24' } })
 ```
 
 **dataTransfer**: Drag events have a `dataTransfer` property that contains data
@@ -149,20 +149,20 @@ bound callback.
   }>
   <TabItem value="react">
 
-  ```jsx
-  import { render, screen, fireEvent } from '@testing-library/react'
+```jsx
+import { render, screen, fireEvent } from '@testing-library/react'
 
-  const Button = ({ onClick, children }) => (
-    <button onClick={onClick}>{children}</button>
-  )
+const Button = ({ onClick, children }) => (
+  <button onClick={onClick}>{children}</button>
+)
 
-  test('calls onClick prop when clicked', () => {
-    const handleClick = jest.fn()
-    render(<Button onClick={handleClick}>Click Me</Button>)
-    fireEvent.click(screen.getByText(/click me/i))
-    expect(handleClick).toHaveBeenCalledTimes(1)
-  })
-  ```
+test('calls onClick prop when clicked', () => {
+  const handleClick = jest.fn()
+  render(<Button onClick={handleClick}>Click Me</Button>)
+  fireEvent.click(screen.getByText(/click me/i))
+  expect(handleClick).toHaveBeenCalledTimes(1)
+})
+```
 
   </TabItem>
   </Tabs>
